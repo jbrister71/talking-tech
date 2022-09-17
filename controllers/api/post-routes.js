@@ -6,14 +6,14 @@ router.get('/', (req, res) => {
         attributes: [ 'id', 'content', 'title', 'created_at' ],
         order: [['created_at', 'DESC']],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
+            {
+                model: Comment,
+                attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -34,14 +34,14 @@ router.get('/:id', (req, res) => {
         },
         attributes: ['id', 'content', 'title', 'created_at'],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
+            {
+                model: Comment,
+                attributes: ['id', 'content', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
